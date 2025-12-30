@@ -1,0 +1,30 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: spring-ai-study
+  ai:
+    deepseek:
+      api-key: <申请key>
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+    # 关闭自动创建client
+    chat:
+      client:
+        enabled: false
+    ollama:
+      base-url: http://localhost:11434
+      embedding:
+        model: nomic-embed-text
+    vectorstore:
+      chroma:
+        client:
+          host: http://192.168.0.107
+        initialize-schema: true
+        collection-name: SpringAiCollection
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: DEBUG
